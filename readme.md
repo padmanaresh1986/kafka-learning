@@ -60,6 +60,72 @@ go to folder  /home/padma/Downloads/kafka_2.13-2.4.1/data/kafka , 5 files should
 **Note : Zookeeper should be running before kafka server run command**  
 
 
+**Create New topic in kafka**  
+>kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1  
+
+**List all topics in kafka**   
+>kafka-topics.sh --zookeeper 127.0.0.1:2181 --list  
+
+**Describe specific topic in kafka**  
+>kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --describe  
+
+**Delete topic in kafka**  
+>kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --delete  
+
+
+**Send message using console producer**  
+>kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first_topic  
+>\>send message here  
+>\>send another message
+
+Setting producer properties  
+>kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first_topic --producer-property acks=all  
+
+Send message to non existing topic  
+>kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic new_topic    
+
+_[2020-04-05 22:22:49,633] WARN [Producer clientId=console-producer] Error while fetching metadata with correlation id 3 : {new_topic=LEADER_NOT_AVAILABLE} (org.apache.kafka.clients.NetworkClient)  
+[2020-04-05 22:22:49,715] WARN [Producer clientId=console-producer] Error while fetching metadata with correlation id 4 : {new_topic=LEADER_NOT_AVAILABLE} (org.apache.kafka.clients.NetworkClient)_  
+
+new topic will be created with default settings , always create topic before using it  
+
+**Receive message using console consumer**  
+>kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic  
+>  
+above command only reads message from th point it launched , it wont read old messages  
+
+>kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning  
+>  
+above command read all messages in the topic from beginning  , reads old messages  
+
+**Consumer Groups**  
+if we launch multiple consumers under same group , they will share the messages from same topic. we can do consumer load balancing in this way  
+
+launch below consumer from multiple  terminals  
+>kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --group my-first-application  
+>  
+send messages from producer , we can notice all there consumers receive messages from same topic in round robin way  
+  
+describe consumer groups using below command  
+>kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe  --group my-first-application  
+>
+
+**Reset offsets**   
+Reset offsets is a mechanism where can set index in topic where consumer can start reading from that index
+this is helpful when we want to read all the messages from beginning from a topic   
+
+>kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application
+ --reset-offsets --to-earliest --execute --topic first_topic  
+
+**Note: Check documentation for other options**  
+ 
+
+      
+
+  
+
+
+
 
 
  
