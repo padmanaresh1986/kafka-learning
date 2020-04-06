@@ -118,6 +118,11 @@ this is helpful when we want to read all the messages from beginning from a topi
  --reset-offsets --to-earliest --execute --topic first_topic  
 
 **Note: Check documentation for other options**  
+
+**Kafka GUI Tool**  
+If you are interested in using GUI tool, please check below link  
+http://kafkatool.com/download.html  
+
  
 
       
