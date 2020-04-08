@@ -1,16 +1,15 @@
 package org.padmanaresh.kafka.producer;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.padmanaresh.kafka.config.ProducerConfiguration;
+import org.padmanaresh.kafka.config.AppConfig;
 
 import java.util.Properties;
 
 public class SimpleProducer {
     public static void main(String[] args) {
         //create producer configuration properties
-        Properties producerProps = ProducerConfiguration.geProducerConfigs();
+        Properties producerProps = AppConfig.geProducerConfigs();
         // create producer
         KafkaProducer<String,String> producer = new KafkaProducer<String,String>(producerProps);
         // create producer record
