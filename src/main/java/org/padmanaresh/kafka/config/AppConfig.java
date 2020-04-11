@@ -29,8 +29,11 @@ public class AppConfig {
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServers);
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        //assigning group to consumers to work as group
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "my-application");
+        // starts reading from begining for new consumer group id
         properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+
         return properties;
     }
 }
