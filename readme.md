@@ -149,6 +149,70 @@ add twitter dependency to project mentioned in above git-hub link.
 
 
 
+**Producer Acks**  
+acks = 0 (no acks) - set this if its OK to loose data  
+acks = 1 (default , leader acknowledgement) - leader receives data, no guarantee replicas received data  
+acks = all (slow and safe)- both leader and replica set received data  high safety high latency  
+
+Safe producers always set to acks=all
+
+**Producer Retries**  
+by default retries set to very high number  
+retries = Interger.MAX  
+retry time  
+retry.backoff.ms = 100 ms by default  
+
+during retries  messages will be sent out of order(mostly in batching )     
+for key based ordering this may be issue , to handle this  
+max.in.flight.requests.per.connection = 5 (default)  
+set this to 1 ensure ordering , but impacts throughput  
+
+**Producer Timeouts**  
+delivery.timeout.ms = 120000 (default)  
+producer wait for 2 mins before failing a message  
+
+**Idempotent Producers**  
+ Idempotent producers handles the duplicate messages sent by producers due to network errors  
+ in order to convert producer to idempotent producer , need to set below proprty to producer   
+ >producerProps.put(enable.idempotence, true);  
+
+above property will set te below properties internally   
+
+retries = Integer.MAX_VALUE;  
+max.in.flight.requests = 5;  
+acks = all;  
+
+**Safe Producer**   
+if we set below properties, then producer is safe producer  
+enable.idempotence = true (at producer level)    
+min.insync.replicas = 2 (at topic or broker level)
+
+Running safe producer has impact on throughput and latency  
+
+**High Throughput producer**  
+Message compression : Compressing message at producer side will  improve throughput, less latency, batter disk utilization  
+Linger Ms: Number of milliseconds producer wait before sending a batch  , default 0  
+Batch size : maximum number of bytes included in message default 16 kb  
+
+
+
+
+  
+
+   
+
+
+
+
+
+
+  
+    
+
+
+
+
+
 
 
 
