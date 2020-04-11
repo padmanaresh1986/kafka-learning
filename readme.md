@@ -129,6 +129,31 @@ this is helpful when we want to read all the messages from beginning from a topi
 If you are interested in using GUI tool, please check below link  
 http://kafkatool.com/download.html  
 
+
+
+**setup twitter account and generate access keys**  
+go to  https://developer.twitter.com/en and follow the the process of registration and create app
+and get the below information from twitter app  
+
+Access Token
+Access Token Secret
+
+API key
+API secret key
+
+once we got the above information , its time to setup project  
+find out twitter client library from git hub.
+> https://github.com/twitter/hbc  
+
+add twitter dependency to project mentioned in above git-hub link.
+
+
+
+
+
+
+
+
  
 
       
