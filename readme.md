@@ -195,6 +195,40 @@ Linger Ms: Number of milliseconds producer wait before sending a batch  , defaul
 Batch size : maximum number of bytes included in message default 16 kb  
 
 
+**setup elastic search and generate access keys**
+We can create elastic search instance using below cloud provider  
+
+>https://app.bonsai.io  
+
+Sign up for free sandbox cluster and get the access keys.
+
+From the dashboard , go to interactive console and run below commands  
+
+To see the list of indices
+> GET /_cat/indices?v  
+
+To create new index (in this case create new index with name twitter)
+> PUT /twitter  
+
+To create a document (in this case we are creating tweets under twitter , document with id 1)  
+>PUT /twitter/tweets/1  
+>{ "course" : "kafka course 1"  }  
+
+To see the created document 
+>GET /twitter/tweets/1  
+
+Add maven dependency to java project
+
+>https://www.elastic.co/guide/en/elasticsearch/client/java-rest/master/java-rest-high-getting-started-maven.html  
+
+Hostname , username and password get from the access tab in bonsai dashboard  
+> https://username:password@hostname:443 
+
+
+
+  
+
+
 
 
   

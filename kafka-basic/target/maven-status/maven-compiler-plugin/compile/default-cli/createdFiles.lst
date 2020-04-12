@@ -1,0 +1,12 @@
+kafka/config/AppConfig.class
+kafka/producer/SimpleProducerWithCallback.class
+kafka/consumer/ElasticSearchConsumer.class
+kafka/consumer/SimpleConsumerWithThreads.class
+kafka/producer/TwitterProducer.class
+kafka/consumer/ConsumerWithThreads.class
+kafka/producer/SimpleProducerWithMsgKey.class
+kafka/producer/SimpleProducer.class
+kafka/consumer/SimpleConsumerAssignAndSeek.class
+kafka/consumer/SimpleConsumerWithGroups.class
+kafka/consumer/ConsumerRunnable.class
+kafka/consumer/SimpleConsumer.class
