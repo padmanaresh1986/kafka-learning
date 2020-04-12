@@ -72,17 +72,14 @@ public class AppConfig {
         //hosebirdEndpoint.followings(followings);
         hosebirdEndpoint.trackTerms(terms);
 
-/*
+
         String consumerKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         String consumerSecret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         String token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         String secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-*/
 
-        String consumerKey =  "XswOtcnXd691fe3MiLevYXPkE";
-        String consumerSecret = "CQsr9KymnAkXOdiMKtPzdmerwMWTLvyV1TrceObXKaKhXEE2Dy";
-        String token = "736408120193384448-Fqa8R080NQmcX5Gtn6VWJdQ5caL7JDW";
-        String secret = "PPKOHK8KonIL0DPGfuei5plEwn8fIIPOUUfeu3bLX6Unt";
+
+
 
         // These secrets should be read from a config file
         Authentication hosebirdAuth = new OAuth1(consumerKey, consumerSecret, token, secret);

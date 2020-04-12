@@ -1,2 +1,4 @@
 /home/padma/git-hub/kafka-learning/kafka-elastic-consumer/src/main/java/kafka/consumer/ElasticSearchConsumer.java
+/home/padma/git-hub/kafka-learning/kafka-elastic-consumer/src/main/java/kafka/consumer/ElasticSearchBulkConsumer.java
+/home/padma/git-hub/kafka-learning/kafka-elastic-consumer/src/main/java/kafka/consumer/ElasticSearchIdempotentConsumer.java
 /home/padma/git-hub/kafka-learning/kafka-elastic-consumer/src/main/java/kafka/config/AppConfig.java

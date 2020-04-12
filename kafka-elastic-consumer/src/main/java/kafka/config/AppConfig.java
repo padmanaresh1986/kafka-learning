@@ -60,12 +60,9 @@ public class AppConfig {
 
     public static RestHighLevelClient getElasticSearchClient(){
         //https://i9uss:emnsf@kafka-course-5699090762.ap-east-2.bonsaisearch.net:443
-        /*String userName = "XXX";
+       String userName = "XXX";
         String password = "XXX";
-        String hostName = "xXX";*/
-        String userName = "i9ussbztid";
-        String password = "emnsfdosmk";
-        String hostName = "kafka-course-5699090762.ap-southeast-2.bonsaisearch.net";
+        String hostName = "xXX";
 
         // don't do below if you are running local ES
         final CredentialsProvider credintialProvider = new BasicCredentialsProvider();
