@@ -51,15 +51,21 @@ public class AppConfig {
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "my-application");
         // starts reading from begining for new consumer group id
         properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-
+        //disabling auto commit, manually commit after processing
+       // properties.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+        //polling one record in batch
+       // properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "1");
         return properties;
     }
 
     public static RestHighLevelClient getElasticSearchClient(){
         //https://i9uss:emnsf@kafka-course-5699090762.ap-east-2.bonsaisearch.net:443
-        String userName = "XXX";
+        /*String userName = "XXX";
         String password = "XXX";
-        String hostName = "xXX";
+        String hostName = "xXX";*/
+        String userName = "i9ussbztid";
+        String password = "emnsfdosmk";
+        String hostName = "kafka-course-5699090762.ap-southeast-2.bonsaisearch.net";
 
         // don't do below if you are running local ES
         final CredentialsProvider credintialProvider = new BasicCredentialsProvider();

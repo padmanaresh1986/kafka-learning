@@ -217,6 +217,13 @@ To create a document (in this case we are creating tweets under twitter , docume
 To see the created document 
 >GET /twitter/tweets/1  
 
+To check the count of documents 
+>GET /twitter/tweets/_count  
+
+TO delete all documents 
+>DELETE   /twitter/tweets/_all  
+
+
 Add maven dependency to java project
 
 >https://www.elastic.co/guide/en/elasticsearch/client/java-rest/master/java-rest-high-getting-started-maven.html  
@@ -224,6 +231,25 @@ Add maven dependency to java project
 Hostname , username and password get from the access tab in bonsai dashboard  
 > https://username:password@hostname:443 
 
+
+**Consumer Advanced Configurations**  
+
+Delivery Semantics: 
+
+**At Most Once :** offsets are committed as soon as consumer received message batch , if consumer processing goes wrong message will be lost.  
+**At Least Once(Default) :** offsets are committed after message processed by consumer , if consumer process goes wrong, there is a chance of duplicate message processing.  
+**Exactly Once :** can be achieved by kafka streams and Idempotent consumers.
+
+Offset commit strategies:  
+enable.auto.commit = true && synchronous processing of batches  
+enable.auto.commit = false && manually commit offsets.  
+
+
+
+  
+   
+   
+  
 
 
   
