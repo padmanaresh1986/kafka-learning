@@ -241,9 +241,21 @@ Delivery Semantics:
 **Exactly Once :** can be achieved by kafka streams and Idempotent consumers.
 
 Offset commit strategies:  
-enable.auto.commit = true && synchronous processing of batches  
-enable.auto.commit = false && manually commit offsets.  
+>enable.auto.commit = true && synchronous processing of batches  
+>enable.auto.commit = false && manually commit offsets.  
 
+Consumer Heartbeat Thread:
+
+>session.timeout.ms (default 10 sec)  
+
+Heartbeats are sent periodically to broker  
+if no heartbeat sent during that period , consumer considered dead.  
+
+>heartbeat.interval.ms (default to 3 sec)  
+  
+usually set to 1/3rd of session time out.  
+
+   
 
 
   
